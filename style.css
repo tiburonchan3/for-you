@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: hidden;
+}
+.container{
+    position: absolute;
+    top:20%;
+    left:40%;
+}
+.icon:nth-child(1){
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    transform: scale(1.6);
+}
+.icon:nth-child(2){
+    position: absolute;
+    z-index: -1;
+}
+.icon:nth-child(3){
+    position: absolute;
+    z-index: -1;
+}
+svg{
+    fill:tomato;
+}
+.icon:nth-child(2)>svg{
+    animation: animate-one 3s infinite;
+}
+.icon:nth-child(3)>svg{
+    animation: animate-two 3s infinite;
+}
+@keyframes animate-one{
+    0%{
+        transform: scale(1.7);
+        fill: rgba(255,99,71,0.5);
+    }
+    50%{
+        transform: scale(1.9);
+        fill: rgba(255,99,71,0.4);
+    }
+    100%{
+        transform: scale(1.7);
+        fill: rgba(255,99,71,0.5);
+    }
+}
+@keyframes animate-two{
+    0%{
+        transform: scale(2.1);
+        fill: rgba(255,99,71,0.6);
+    }
+    50%{
+        transform: scale(2.3);
+        fill: rgba(255,99,71,0.5);
+    }
+    100%{
+        transform: scale(2.1);
+        fill: rgba(255,99,71,0.6);
+    }
+}
+.todo{
+    width:1px;
+    height:1px;
+    position: absolute;
+    z-index: -3;
+    background:tomato;
+    top:20%;
+    left:40%;
+}
+.todo > svg{
+    transition: all 2s;
+}
+.open{
+    cursor: pointer;
+    top:54px;
+    left:43px;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+ }
+.todo.show > svg{
+    transform: scale(18);
+}
+.todo.show{
+    z-index: 4;
+    width: 2000px
+}
+.close{
+    color:#fff;
+    position: absolute;
+    z-index: 4;
+    right:1300px;
+    top:-80px;
+    cursor: pointer;
+    font-size: 60px;
+}
+.instructions{
+    color:tomato;
+    position: absolute;
+    bottom:100px;
+    left:30%;
+    font-size: 30px;
+    cursor:pointer;
+}
+.instructions::before{
+    content: "Click here";
+}
+.heart-text{
+    color:#fff;
+    width:200px;
+    position: absolute;
+    z-index: 4;
+    top:125px;
+    left:0;
+    cursor: pointer;
+    font-size: 0;
+    transition: all 2s;
+    text-align: center;
+}
+.heart-text.show-text{
+    transform: scale(2);
+    font-size: 10px;
+}
+@media screen and (max-width: 500px){
+    .container{
+        position: absolute;
+        top:20%;
+        left:35%;
+    }
+    .instructions{
+        left:22%;
+        font-size: 20px;
+    }
+    .instructions::before{
+        content: "Touch here";
+    }
+    .heart-text.show-text{
+        top:125px;
+        left:-50px;
+    }
+    .close{
+        left:205px;
+        top:-147px;
+    }
+}
